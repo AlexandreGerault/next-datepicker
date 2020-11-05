@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Datepicker from '../components/Datepicker';
 
 export default function Home() {
   return (
@@ -7,6 +8,9 @@ export default function Home() {
         <title>My awesome Datepicker</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <Datepicker />
+
     </div>
   )
 }
