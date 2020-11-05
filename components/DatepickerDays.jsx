@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {css} from '@emotion/core';
 
-const DatepickerDays = () => {
+const DatepickerDays = ({selectedDay, onSelectDay, navigationDay}) => {
   const daysInMonth = (year, month) => {
     const lastDayOfGivenMonth = new Date(year, month, 0);
     let daysInMonths = [];
@@ -13,13 +13,9 @@ const DatepickerDays = () => {
     return daysInMonths;
   }
 
-  const today = new Date();
-  const days = daysInMonth(today.getFullYear(), today.getMonth())
-  const [selectedDay, setSelectedDay] = useState(today)
+  const handleSelectDay = date => onSelectDay(date)
 
-  const clickOnDay = (date) => {
-    console.log(date)
-  }
+  const days = daysInMonth(navigationDay.getFullYear(), navigationDay.getMonth())
 
   const daysIndexes = days.map(date => {
       const isSelected = date => selectedDay.getDate() === date.getDate()
@@ -34,7 +30,7 @@ const DatepickerDays = () => {
             ? css`grid-column-start: ${date.getDay() - 1 > 0 ? date.getDay() - 1 : 7};`
             : undefined}
           onClick={() => {
-            setSelectedDay(date)
+            handleSelectDay(date)
           }}
         >
           {date.getDate()}
