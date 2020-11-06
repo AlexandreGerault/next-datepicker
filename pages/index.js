@@ -9,7 +9,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Datepicker />
+      <div className="p-8">
+        <Datepicker width={300} />
+      </div>
 
     </div>
   )
