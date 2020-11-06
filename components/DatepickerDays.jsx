@@ -22,13 +22,17 @@ const DatepickerDays = ({selectedDay, onSelectDay, navigationDay}) => {
         && selectedDay.getMonth() === date.getMonth()
         && selectedDay.getFullYear() === date.getFullYear();
 
+      const selectedClass = "bg-orange-700 ";
+      const firstDayOffset = `col-start-${date.getDay() - 1 > 0 ? date.getDay() - 1 : 7} `;
+
       return (
         <div
-          className={"hover:bg-orange-500 cursor-pointer" + ( isSelected(date) ? " bg-orange-700" : "")}
+          className={
+            "hover:bg-orange-500 cursor-pointer rounded-full "
+            + (isSelected(date) ? selectedClass : "")
+            + (date.getDate() === 1 ? firstDayOffset : "")
+          }
           key={date.toLocaleString()}
-          css={date.getDate() === 1
-            ? css`grid-column-start: ${date.getDay() - 1 > 0 ? date.getDay() - 1 : 7};`
-            : undefined}
           onClick={() => {
             handleSelectDay(date)
           }}
@@ -41,22 +45,15 @@ const DatepickerDays = ({selectedDay, onSelectDay, navigationDay}) => {
 
   return (
     <>
-      <div css={css`
-      max-width: 300px;
-    `}>
-        <div css={css`
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      `}>
-          <div>Lun</div>
-          <div>Mar</div>
-          <div>Mer</div>
-          <div>Jeu</div>
-          <div>Ven</div>
-          <div>Sam</div>
-          <div>Dim</div>
-          {daysIndexes}
-        </div>
+      <div className="grid grid-cols-7 text-center">
+        <div>Lun</div>
+        <div>Mar</div>
+        <div>Mer</div>
+        <div>Jeu</div>
+        <div>Ven</div>
+        <div>Sam</div>
+        <div>Dim</div>
+        {daysIndexes}
       </div>
     </>
   )
