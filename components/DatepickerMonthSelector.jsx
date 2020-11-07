@@ -10,7 +10,7 @@ const DatepickerMonthSelector = ({navigationDay, onMonthDown, onMonthUp}) => {
   }
 
   return (
-    <div className="grid grid-cols-3 text-center py-4">
+    <div className="grid grid-cols-3 text-center my-4">
       <button onClick={() => handleMonthDown(navigationDay)} className="flex justify-end items-center">
         <img src="/back.svg" alt="Flèche de navigation vers la gauche" css={css`width: 16px;`} />
       </button>

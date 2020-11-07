@@ -45,7 +45,7 @@ const DatepickerDays = ({selectedDay, onSelectDay, navigationDay}) => {
 
   return (
     <>
-      <div className="grid grid-cols-7 text-center">
+      <div className="grid grid-cols-7 gap-2 text-center">
         <div>Lun</div>
         <div>Mar</div>
         <div>Mer</div>
