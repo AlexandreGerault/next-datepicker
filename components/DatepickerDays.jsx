@@ -18,12 +18,14 @@ const DatepickerDays = ({selectedDay, onSelectDay, navigationDay}) => {
   const days = daysInMonth(navigationDay.getFullYear(), navigationDay.getMonth())
 
   const daysIndexes = days.map(date => {
-      const isSelected = date => selectedDay.getDate() === date.getDate()
+      const isSelected = (date) => {
+        return selectedDay.getDate() === date.getDate()
         && selectedDay.getMonth() === date.getMonth()
-        && selectedDay.getFullYear() === date.getFullYear();
+        && selectedDay.getFullYear() === date.getFullYear()
+      }
 
       const selectedClass = "bg-orange-700 ";
-      const firstDayOffset = `col-start-${date.getDay() - 1 > 0 ? date.getDay() - 1 : 7} `;
+      const firstDayOffset = `col-start-${date.getDay() - 1 >= 0 ? date.getDay() : 7} `;
 
       return (
         <div
@@ -45,7 +47,7 @@ const DatepickerDays = ({selectedDay, onSelectDay, navigationDay}) => {
 
   return (
     <>
-      <div className="grid grid-cols-7 gap-2 text-center">
+      <div className="grid grid-cols-7 gap-2 text-center p-4 pt-0">
         <div>Lun</div>
         <div>Mar</div>
         <div>Mer</div>
