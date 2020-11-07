@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DateDisplayer = ({selectedDate}) => {
+const DateDisplayer = ({selectedDate, color}) => {
   const day = selectedDate.toLocaleDateString(selectedDate, { weekday: 'long' })
 
   const date = selectedDate.toLocaleDateString(selectedDate, { day: 'numeric' })
@@ -11,10 +11,10 @@ const DateDisplayer = ({selectedDate}) => {
   
   return (
     <div className="text-center capitalize">
-      <div className="bg-orange-700 py-2 text-white rounded-t-lg">
+      <div className={`bg-${color}-700 py-2 text-white rounded-t-lg`}>
         {day}
       </div>
-      <div className="bg-orange-500 text-white flex flex-col py-4">
+      <div className={`bg-${color}-500 text-white flex flex-col py-4`}>
         <div className="text-xl">
           {month}
         </div>
