@@ -24,13 +24,13 @@ const DatepickerDays = ({selectedDay, onSelectDay, navigationDay}) => {
         && selectedDay.getFullYear() === date.getFullYear()
       }
 
-      const selectedClass = "bg-orange-700 ";
+      const selectedClass = "bg-orange-500 text-white";
       const firstDayOffset = `col-start-${date.getDay() - 1 >= 0 ? date.getDay() : 7} `;
 
       return (
         <div
           className={
-            "hover:bg-orange-500 cursor-pointer rounded-full "
+            "hover:bg-orange-500 hover:text-white cursor-pointer rounded-full flex items-center justify-center p-2 transition-all duration-500 ease-in-out "
             + (isSelected(date) ? selectedClass : "")
             + (date.getDate() === 1 ? firstDayOffset : "")
           }
@@ -39,7 +39,9 @@ const DatepickerDays = ({selectedDay, onSelectDay, navigationDay}) => {
             handleSelectDay(date)
           }}
         >
-          {date.getDate()}
+          <div css={css`width: 40px; height: 40px;`} className="flex items-center justify-center">
+            {date.getDate()}
+          </div>
         </div>
       )
     }
