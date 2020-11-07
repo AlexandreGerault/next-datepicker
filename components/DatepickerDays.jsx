@@ -2,20 +2,20 @@ import React, {useState} from 'react';
 import {css} from '@emotion/core';
 
 const DatepickerDays = ({selectedDay, onSelectDay, navigationDay, color}) => {
-  const daysInMonth = (year, month) => {
-    const lastDayOfGivenMonth = new Date(year, month, 0);
-    let daysInMonths = [];
+  const handleSelectDay = (date) => onSelectDay(date)
 
-    for (let i = 1; i < lastDayOfGivenMonth.getDate(); i++) {
-      daysInMonths = [...daysInMonths, new Date(year, month, i)];
+  const daysInMonth = (date) => {
+    const lastDayOfGivenMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0)
+
+    let daysInMonths = [];
+    for (let i = 1; i <= lastDayOfGivenMonth.getDate(); i++) {
+      daysInMonths.push(new Date(date.getFullYear(), date.getMonth(), i))
     }
 
     return daysInMonths;
   }
 
-  const handleSelectDay = date => onSelectDay(date)
-
-  const days = daysInMonth(navigationDay.getFullYear(), navigationDay.getMonth())
+  const days = daysInMonth(navigationDay)
 
   const daysIndexes = days.map(date => {
       const isSelected = (date) => {
