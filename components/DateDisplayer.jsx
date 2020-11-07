@@ -10,8 +10,8 @@ const DateDisplayer = ({selectedDate}) => {
   const year = selectedDate.toLocaleDateString(selectedDate, { year: 'numeric' })
   
   return (
-    <div className="text-center -m-4 mb-0 capitalize">
-      <div className="bg-orange-700 py-2 text-white">
+    <div className="text-center capitalize">
+      <div className="bg-orange-700 py-2 text-white rounded-t-lg">
         {day}
       </div>
       <div className="bg-orange-500 text-white flex flex-col py-4">

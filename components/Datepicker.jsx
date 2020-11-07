@@ -9,7 +9,7 @@ const Datepicker = ({width}) => {
   const [navigationDay, setNavigationDay] = useState(new Date());
 
   return (
-    <div className="shadow p-4" css={css`width: ${width}px;`}>
+    <div className="shadow rounded-lg" css={css`width: ${width}px;`}>
       <DateDisplayer selectedDate={selectedDay} />
 
       <DatepickerMonthSelector
