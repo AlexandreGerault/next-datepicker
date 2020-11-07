@@ -24,7 +24,7 @@ const DatepickerDays = ({selectedDay, onSelectDay, navigationDay, color}) => {
         && selectedDay.getFullYear() === date.getFullYear()
       }
 
-      const selectedClass = `bg-${color}-700 text-white`;
+      const selectedClass = `bg-${color}-700 text-white `;
       const firstDayOffset = `col-start-${date.getDay() - 1 >= 0 ? date.getDay() : 7} `;
 
       return (
